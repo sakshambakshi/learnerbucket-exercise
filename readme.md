@@ -12,19 +12,19 @@
 ### Part A: Promises & Asynchronous Execution
 | S.No | Name of Exercise | Status | Remarks |
 | :--- | :--- | :--- | :--- |
-| 1 | `Promise.prototype.finally` | ✅ Done | Remember `this.constructor` and value transparency. |
-| 2 | `Promise.all` | ⬜️ Todo | Fast-fails on the first rejection. |
-| 3 | `Promise.allSettled` | ✅ Done | Waits for all; maps results to `{ status, value/reason }`. |
-| 4 | `Promise.race` | ⬜️ Todo | Resolves/rejects with the very first settled promise. |
-| 5 | `Promise.any` | ⬜️ Todo | Returns an `AggregateError` if every single promise rejects. |
-| 6 | `Promise.try` | ✅ Done | Executes synchronously, wraps everything safely in a Promise. |
-| 7 | `Promise.withResolvers` | ✅ Done | Extracts `resolve` and `reject` to the outer scope cleanly. |
-| 8 | **Custom Promise Implementation** | ⬜️ Todo | Manage internal state, handle chaining, and use microtasks. |
-| 9 | Execute Async Functions in Series | ✅ Done | Mastered via recursion, `withResolvers`, and `Array.reduce`. |
+| 1 | [`Promise.prototype.finally`](./01-promise-finally.js) | ✅ Done | Remember `this.constructor` and value transparency. |
+| 2 | [`Promise.all`](./02-promise-all.js) | ✅ Done | Fast-fails on the first rejection. |
+| 3 | [`Promise.allSettled`](./03-promise-allSettled.js) | ✅ Done | Waits for all; maps results to `{ status, value/reason }`. |
+| 4 | [`Promise.race`](./04-promise-race.js) | ✅ Done | Resolves/rejects with the very first settled promise. |
+| 5 | [`Promise.any`](./05-promise-any.js) | ✅ Done | Returns an `AggregateError` if every single promise rejects. |
+| 6 | [`Promise.try`](./06-promise-try.js) | ✅ Done | Executes synchronously, wraps everything safely in a Promise. |
+| 7 | [`Promise.withResolvers`](./07-promise-withResolvers.js) | ✅ Done | Extracts `resolve` and `reject` to the outer scope cleanly. |
+| 8 | [**Custom Promise Implementation**](./08-Custom-Promise) | ⬜️ Todo | Manage internal state, handle chaining, and use microtasks. |
+| 9 | [Execute Async Functions in Series](./09-async-series.js) | ✅ Done | Mastered via recursion, `withResolvers`, and `Array.reduce`. |
 | 10 | Implement `mapSeries` (Async Map) | ⏳ In Progress | Wait for the previous item to finish before mapping the next. |
 | 11 | Async Tasks with Concurrency Limit | ⬜️ Todo | e.g., run max 3 tasks at a time out of 10 (`Promise.pool`). |
 | 12 | Promisify (`util.promisify`) | ⬜️ Todo | Convert a callback-style function into a Promise-returning one. |
-| 13 | Promise Retry Mechanism | ✅ Done | Retry a failing Promise `N` times with a delay mechanism. |
+| 13 | [Promise Retry Mechanism](./13-promise-retry.js) | ✅ Done | Retry a failing Promise `N` times with a delay mechanism. |
 | 14 | `sleep` / Delay Utility | ✅ Done | Used `Promise` + `setTimeout` (Mastered inside the Retry exercise). |
 
 ### Part B: Functions, Context (`this`), & Timing

@@ -1,117 +1,166 @@
-# 🚀 The Ultimate JavaScript & React Interview Tracker
+# 🚀 The Ultimate JavaScript & React Interview Guide
+*A comprehensive tracker and study guide based on the 118 core machine coding questions frequently asked in Frontend Engineering interviews.*
 
 **Status Legend:**
-* **⬜️ Todo:** Not started yet.
-* **⏳ In Progress:** Currently working on this.
-* **✅ Done:** Completed and understood.
+* ⬜️ **Todo:** Not started yet.
+* ⏳ **In Progress:** Currently working on this.
+* ✅ **Done:** Completed, understood, and interview-ready.
 
 ---
 
 ## 📑 Table of Contents
-- [🚀 The Ultimate JavaScript \& React Interview Tracker](#-the-ultimate-javascript--react-interview-tracker)
+- [🚀 The Ultimate JavaScript \& React Interview Guide](#-the-ultimate-javascript--react-interview-guide)
   - [📑 Table of Contents](#-table-of-contents)
-  - [Section 1: Machine Coding \& Polyfill Exercises](#section-1-machine-coding--polyfill-exercises)
-    - [Part A: Promises \& Asynchronous Execution](#part-a-promises--asynchronous-execution)
-    - [Part B: Functions, Context (`this`), \& Timing](#part-b-functions-context-this--timing)
-    - [Part C: Arrays, Objects \& Data Structures](#part-c-arrays-objects--data-structures)
-    - [Part D: DOM Manipulation \& Browser APIs](#part-d-dom-manipulation--browser-apis)
-    - [Part E: Design Patterns \& Architecture](#part-e-design-patterns--architecture)
-    - [Part F: React Custom Hooks \& Machine Coding](#part-f-react-custom-hooks--machine-coding)
+  - [1. 🧠 The Promise Combinators: A Comedy (Cheat Sheet)](#1--the-promise-combinators-a-comedy-cheat-sheet)
+  - [2. 🏗️ Core JavaScript Pillars (In-Depth)](#2-️-core-javascript-pillars-in-depth)
+  - [3. 💻 The 118 Machine Coding Challenges (Topic-Wise)](#3--the-118-machine-coding-challenges-topic-wise)
+    - [Part 1: Promises \& Asynchronous JavaScript](#part-1-promises--asynchronous-javascript)
+    - [Part 2: Function Utilities \& Closures](#part-2-function-utilities--closures)
+    - [Part 3: Data Structures \& Algorithms](#part-3-data-structures--algorithms)
+    - [Part 4: Core JS Polyfills \& Timers](#part-4-core-js-polyfills--timers)
+    - [Part 5: Objects \& Arrays Manipulation](#part-5-objects--arrays-manipulation)
+    - [Part 6: React Custom Hooks](#part-6-react-custom-hooks)
+    - [Part 7: React Machine Coding](#part-7-react-machine-coding)
   - [Section 2: JavaScript Promise Managers: A Comedy](#section-2-javascript-promise-managers-a-comedy)
     - [1. The Perfectionist vs. The Therapist](#1-the-perfectionist-vs-the-therapist)
     - [2. The Referee vs. The Desperate Survivor](#2-the-referee-vs-the-desperate-survivor)
 
 ---
 
-## Section 1: Machine Coding & Polyfill Exercises
+## 1. 🧠 The Promise Combinators: A Comedy (Cheat Sheet)
+*Imagine you throw a party and send four friends to get pizzas. These friends are your Promises.* 
 
-### Part A: Promises & Asynchronous Execution
+| Method | The Vibe | Succeeds when... | Fails when... |
+| :--- | :--- | :--- | :--- |
+| **`Promise.all()`** | **The Perfectionist:** *"If even ONE person drops a pizza, the party is ruined! Burn it down!"* | ALL succeed. | ANY one fails (Fast-fails). |
+| **`Promise.allSettled()`**| **The Therapist:** *"Let's just wait until everyone gets back and talk about our feelings, win or lose."* | ALL finish. | (Never rejects, just reports) |
+| **`Promise.race()`** | **The Referee:** *"First person back determines our fate! I don't care if they bring pizza or disaster!"*| The FIRST finishes. | The FIRST fails. |
+| **`Promise.any()`** | **The Survivor:** *"I just need ONE pizza. Ignore the failures, first person with food saves the day!"* | ANY one succeeds. | ALL fail (`AggregateError`). |
+
+---
+
+## 2. 🏗️ Core JavaScript Pillars (In-Depth)
+Before diving into the exercises, ensure you understand the engines powering them.
+
+1. **Closures & Lexical Scoping:** A function remembers the variables around it where it was born, even if executed elsewhere. *(Crucial for Debounce, Throttle, Memoization, and React Hooks).*
+2. **The Event Loop & Microtasks:** JS is single-threaded. Synchronous code runs first, then the **Microtask Queue** (Promises), then the **Macrotask Queue** (`setTimeout`). 
+
+3. **Prototypal Inheritance & Context (`this`):** `this` is determined by *how* a function is called, not where it's written. *(Crucial for `bind`, `call`, `apply`, and Array polyfills).*
+4. **Space-Time Tradeoffs:** Using a `Map` or `Set` costs more memory (Space) but turns slow O(N) array searches into instant O(1) lookups (Time). *(Crucial for LRU Caches and Memoization).*
+
+---
+
+## 3. 💻 The 118 Machine Coding Challenges (Topic-Wise)
+
+### Part 1: Promises & Asynchronous JavaScript
+*Mastering the Event Loop, Microtasks, and Concurrency Orchestration.*
+
 | S.No | Name of Exercise | Status | Remarks |
 | :--- | :--- | :--- | :--- |
-| 1 | [`Promise.prototype.finally`](./01-promise-finally.js) | ✅ Done | Remember `this.constructor` and value transparency. |
-| 2 | [`Promise.all`](./02-promise-all.js) | ✅ Done | Fast-fails on the first rejection. *(See Cheat Sheet below!)* |
-| 3 | [`Promise.allSettled`](./03-promise-allSettled.js) | ✅ Done | Waits for all; maps results to `{ status, value/reason }`. |
-| 4 | [`Promise.race`](./04-promise-race.js) | ✅ Done | Resolves/rejects with the very first settled promise. |
-| 5 | [`Promise.any`](./05-promise-any.js) | ✅ Done | Returns an `AggregateError` if every single promise rejects. |
-| 6 | [`Promise.try`](./06-promise-try.js) | ✅ Done | Executes synchronously, wraps everything safely in a Promise. |
-| 7 | [`Promise.withResolvers`](./07-promise-withResolvers.js) | ✅ Done | Extracts `resolve` and `reject` to the outer scope cleanly. |
-| 8 | [**Custom Promise Implementation**](./08-Custom-Promise) | ⬜️ Todo | Manage internal state, handle chaining, and use microtasks. |
-| 9 | [Execute Async Functions in Series](./09-async-series.js) | ✅ Done | Mastered via recursion, `withResolvers`, and `Array.reduce`. |
-| 10 | Implement `mapSeries` (Async Map) | ⏳ In Progress | Wait for the previous item to finish before mapping the next. |
-| 11 | Async Tasks with Concurrency Limit | ⬜️ Todo | e.g., run max 3 tasks at a time out of 10 (`Promise.pool`). |
-| 12 | Promisify (`util.promisify`) | ⬜️ Todo | Convert a callback-style function into a Promise-returning one. |
-| 13 | [Promise Retry Mechanism](./13-promise-retry.js) | ✅ Done | Retry a failing Promise `N` times with a delay mechanism. |
-| 14 | `sleep` / Delay Utility | ✅ Done | Used `Promise` + `setTimeout` (Mastered inside the Retry exercise). |
+| 1 | `Promise.all()` polyfill | ✅ Done | Fast-fails on the first rejection. |
+| 2 | `Promise.any()` polyfill | ✅ Done | Returns `AggregateError` if all fail. |
+| 3 | `Promise.race()` polyfill | ✅ Done | Resolves/rejects with the first settled. |
+| 4 | `Promise.finally()` polyfill | ✅ Done | Remember value transparency. |
+| 5 | `Promise.allSettled()` polyfill | ✅ Done | Maps results to status objects. |
+| 6 | Custom Promise Implementation | ⬜️ Todo | Handle internal state and microtasks. |
+| 7 | Execute async functions in Series | ✅ Done | Mastered via recursion/reduce. |
+| 8 | Execute async functions in Parallel | ✅ Done | Handled via `Promise.all`. |
+| 9 | Retry promises N number of times | ✅ Done | Retry failing Promise with delay. |
+| 10 | Implement `mapSeries` async function | ✅ Done | Sequential async mapping. |
+| 11 | Implement `mapLimit` async function | ✅ Done | Max concurrency using orchestrator. |
+| 12 | Implement `asyncFilter` function | ✅ Done | Parallel execution, preserves order. |
+| 13 | Implement `asyncReject` function | ✅ Done | Inverse of asyncFilter. |
+| 14 | Execute promises with priority | ⬜️ Todo | - |
+| 15 | Dependent async tasks | ⬜️ Todo | - |
+| 38 | Basic implementations of streams API | ⬜️ Todo | - |
 
-### Part B: Functions, Context (`this`), & Timing
+### Part 2: Function Utilities & Closures
+*Mastering Lexical Scope, Context (`this`), and Optimization.*
+
 | S.No | Name of Exercise | Status | Remarks |
 | :--- | :--- | :--- | :--- |
-| 15 | `Function.prototype.bind` | ⬜️ Todo | Must handle currying and the `new` keyword edge cases. |
-| 16 | `Function.prototype.call` | ⬜️ Todo | Attach the function to the context object temporarily to run it. |
-| 17 | `Function.prototype.apply` | ⬜️ Todo | Similar to `call`, but spreads the array arguments. |
-| 18 | `new` Keyword Polyfill | ⬜️ Todo | Object linking via `__proto__` and handling constructor returns. |
-| 19 | `Object.create` Polyfill | ⬜️ Todo | Prototypal inheritance without executing the constructor. |
-| 20 | Debounce Utility | ⬜️ Todo | Clears the timeout on subsequent rapid calls. |
-| 21 | Throttle Utility | ⬜️ Todo | Tracks the last executed time or uses a boolean flag. |
-| 22 | Memoization Function | ⬜️ Todo | Cache expensive function calls based on arguments. |
-| 23 | Currying Utility | ⬜️ Todo | e.g., `sum(1)(2)(3)`. Handle arbitrary numbers of arguments. |
-| 24 | Lodash `_.once` | ⬜️ Todo | Ensure a function can only be called exactly one time. |
-| 25 | `pipe()` and `compose()` | ⬜️ Todo | Pass the output of one function as the input to the next. |
-| 26 | `setInterval` via `setTimeout` | ⬜️ Todo | Ensure intervals don't overlap if execution takes too long. |
-| 27 | `clearAllTimers` Utility | ⬜️ Todo | Overwrite `window.setTimeout` to track and clear all active timers. |
+| 23 | Implement debounce function | ⬜️ Todo | Clear timeout on rapid calls. |
+| 24 | Implement debounce with immediate flag| ⬜️ Todo | Execute on leading edge instead of trailing. |
+| 25 | Implement throttle function | ⬜️ Todo | Limit execution rate based on time. |
+| 29 | Create a toggle function | ⬜️ Todo | Cycle through arguments on each call. |
+| 30 | Create a sampling function | ⬜️ Todo | Execute function only once per N calls. |
+| 39 | Create a memoizer function | ⬜️ Todo | Cache expensive function calls. |
+| 40 | Method chaining - part 1 | ⬜️ Todo | Return `this` to allow `.method().method()`. |
+| 41 | Method chaining - part 2 | ⬜️ Todo | - |
+| 45 | Currying - problem 1 | ⬜️ Todo | e.g., `sum(1)(2)(3)`. |
 
-### Part C: Arrays, Objects & Data Structures
+### Part 3: Data Structures & Algorithms
+*Mastering Space-Time Complexity and Memory Management.*
+
 | S.No | Name of Exercise | Status | Remarks |
 | :--- | :--- | :--- | :--- |
-| 28 | `Array.prototype.map` | ⬜️ Todo | Pass `thisArg`, `index`, and `array` to the callback. |
-| 29 | `Array.prototype.filter` | ⬜️ Todo | Only push items to the new array if the callback is truthy. |
-| 30 | `Array.prototype.reduce` | ⬜️ Todo | Handle the missing `initialValue` edge case correctly. |
-| 31 | Array Flatten (`Array.flat`) | ⬜️ Todo | Use recursion or an iterative stack for deep nesting. |
-| 32 | Lodash `_.chunk` | ⬜️ Todo | Split an array into groups the length of `size`. |
-| 33 | Deep Clone Object | ⬜️ Todo | Handle nested objects, arrays, Dates, and circular references. |
-| 34 | Deep Equal (`isEqual`) | ⬜️ Todo | Recursively check if two objects/arrays have identical keys/values. |
-| 35 | `Object.assign` Polyfill | ⬜️ Todo | Copy enumerable own properties from source to target objects. |
-| 36 | Lodash `_.get` & `_.set` | ⬜️ Todo | Safely access/set deeply nested object properties via string paths. |
-| 37 | `JSON.stringify` Polyfill | ⬜️ Todo | Recursively convert JS objects/arrays/primitives to JSON strings. |
+| 16 | Create pausable auto incrementor | ⬜️ Todo | - |
+| 17 | Implement queue using stack | ⬜️ Todo | Push costs O(1), Pop costs O(N). |
+| 18 | Implement stack using queue | ⬜️ Todo | Push costs O(N), Pop costs O(1). |
+| 19 | Implement stack with min/max method | ⬜️ Todo | Keep track of min/max in O(1) time. |
+| 20 | Implement two stacks with an array | ⬜️ Todo | - |
+| 21 | Implement Priority Queue | ⬜️ Todo | - |
+| 22 | Implement LRU cache | ⬜️ Todo | O(1) ops using `Map` for order tracking. |
+| 28 | Implement hashSet | ⬜️ Todo | - |
 
-### Part D: DOM Manipulation & Browser APIs
+### Part 4: Core JS Polyfills & Timers
+*Mastering Browser APIs and Prototypal Inheritance.*
+
 | S.No | Name of Exercise | Status | Remarks |
 | :--- | :--- | :--- | :--- |
-| 38 | Find Corresponding Node | ⬜️ Todo | Find the exact same node in a cloned DOM tree using tree traversal. |
-| 39 | Get Elements by Class Name | ⬜️ Todo | Polyfill `document.getElementsByClassName` using DFS/BFS. |
-| 40 | Virtual DOM to Real DOM | ⬜️ Todo | Write a `render()` function that turns a nested JS object into HTML. |
-| 41 | Event Delegation Utility | ⬜️ Todo | Attach a single listener to a parent to manage dynamically added children. |
-| 42 | Infinite DOM Scroll | ⬜️ Todo | Use `IntersectionObserver` to load more nodes as the user scrolls. |
+| 26 | Implement custom `instanceof` | ⬜️ Todo | Traverse the `__proto__` chain. |
+| 27 | Check if function called with `new` | ⬜️ Todo | Checking `new.target` or prototype link. |
+| 31 | Make function sleep | ✅ Done | `await new Promise(r => setTimeout(r, ms))` |
+| 42 | Implement clearAllTimeout | ⬜️ Todo | Overwrite `window.setTimeout` to track IDs. |
+| 43 | Implement clearAllInterval | ⬜️ Todo | - |
+| 44 | Create a fake setTimeout | ⬜️ Todo | - |
+| 99 | Time in human readable format | ⬜️ Todo | - |
+| 100| Detect overlapping circles | ⬜️ Todo | Math logic / Geometry logic. |
 
-### Part E: Design Patterns & Architecture
+### Part 5: Objects & Arrays Manipulation
+*Mastering Deep Traversals, Recursion, and Math.*
+
 | S.No | Name of Exercise | Status | Remarks |
 | :--- | :--- | :--- | :--- |
-| 43 | Event Emitter (Pub/Sub) | ⬜️ Todo | Implement `on`, `emit`, `off`, and `once` methods. |
-| 44 | LRU Cache | ⬜️ Todo | Use `Map` for order preservation and $O(1)$ operations. |
-| 45 | Observable via ES6 `Proxy` | ⬜️ Todo | Intercept object property getters/setters to trigger UI updates. |
+| 32 | Remove cycle from the object | ⬜️ Todo | Use a `WeakSet` to track visited nodes. |
+| 33 | Filter multidimensional array | ⬜️ Todo | Recursion required. |
+| 34 | Count element in multidimensional array| ⬜️ Todo | Recursion required. |
+| 35 | Convert HEX to RGB | ⬜️ Todo | Bitwise operators or `parseInt(hex, 16)`. |
+| 36 | Convert RGB to HEX | ⬜️ Todo | `.toString(16)` padding logic. |
+| 37 | In-memory filesystem library | ⬜️ Todo | - |
 
-### Part F: React Custom Hooks & Machine Coding
+---
+
+### Part 6: React Custom Hooks
+*Mastering React Lifecycle and Abstractions.*
+
 | S.No | Name of Exercise | Status | Remarks |
 | :--- | :--- | :--- | :--- |
-| 46 | `useDebounce` Hook | ⬜️ Todo | Delay value updates; clear timeout on unmount. |
-| 47 | `usePrevious` Hook | ⬜️ Todo | Use `useRef` to store and access the previous render's state. |
-| 48 | `useInterval` Hook | ⬜️ Todo | The correct way to handle `setInterval` in React (Dan Abramov's pattern). |
-| 49 | `useFetch` Hook | ⬜️ Todo | Handle loading, errors, and `AbortController` for race conditions. |
-| 50 | `useLocalStorage` Hook | ⬜️ Todo | Sync state to `window.localStorage` and handle cross-tab events. |
-| 51 | `useOnClickOutside` Hook | ⬜️ Todo | Detect clicks outside a referenced element (crucial for dropdowns/modals). |
-| 52 | Polyfill `useState` | ⬜️ Todo | Conceptual: Replicate React's closure-based state array mechanism. |
-| 53 | **Traffic Light Component** | ⬜️ Todo | Auto-cycle through Red, Yellow, Green with different durations. |
-| 54 | Accordion Component | ⬜️ Todo | Manage expandable/collapsible state and accessible ARIA labels. |
-| 55 | Star Rating Widget | ⬜️ Todo | Handle hover state vs. clicked (locked) state dynamically. |
-| 56 | Autocomplete / Typeahead | ⬜️ Todo | Combine input handling, debouncing, and highlighting matched text. |
-| 57 | Modal / Dialog | ⬜️ Todo | Use `ReactDOM.createPortal` to render outside the main DOM tree. |
-| 58 | Toast Notification System | ⬜️ Todo | Manage a queue of auto-dismissing alerts globally. |
-| 59 | Progress Bar Component | ⬜️ Todo | Handle percentage fills, queued animations, and concurrency. |
-| 60 | Pagination Component | ⬜️ Todo | Calculate total pages, handle ellipses (`1 ... 4 5 6 ... 10`), and navigation. |
-| 61 | Tic-Tac-Toe Game | ⬜️ Todo | 2D array state manipulation and calculating win conditions. |
-| 62 | File Explorer (Tree View) | ⬜️ Todo | Render a deeply nested JSON structure using **Recursive Components**. |
-| 63 | Carousel / Image Slider | ⬜️ Todo | Handle next/prev navigation, auto-play, and boundary wrapping. |
-| 64 | Virtualized List | ⬜️ Todo | Render only the visible items in a massive list of 10,000+ elements. |
+| 101 | `usePrevious()` hook | ⬜️ Todo | Track previous state with `useRef`. |
+| 102 | `useIdle()` hook | ⬜️ Todo | Detect user inactivity via event listeners. |
+| 103 | `useAsync()` hook | ⬜️ Todo | Manage loading/error/data states. |
+| 104 | `useDebounce()` hook | ⬜️ Todo | Delay UI state updates. |
+| 105 | `useThrottle()` hook | ⬜️ Todo | Limit execution rate in React. |
+| 106 | `useResponsive()` hook | ⬜️ Todo | Track viewport/media queries. |
+| 107 | `useWhyDidYouUpdate()` hook | ⬜️ Todo | Debug unnecessary re-renders. |
+| 108 | `useOnScreen()` hook | ⬜️ Todo | Uses `IntersectionObserver`. |
+| 109 | `useScript()` hook | ⬜️ Todo | Dynamically inject external JS. |
+| 110 | `useOnClickOutside()` hook | ⬜️ Todo | Crucial for Modals/Dropdowns. |
+| 111 | `useHasFocus()` hook | ⬜️ Todo | - |
+| 112 | `useToggle()` hook | ⬜️ Todo | - |
+| 113 | `useCopy()` hook | ⬜️ Todo | Clipboard API integration. |
+| 114 | `useLockedBody()` hook | ⬜️ Todo | Prevent background scrolling via CSS. |
+
+### Part 7: React Machine Coding
+*Mastering Component Architecture and UI State.*
+
+| S.No | Name of Exercise | Status | Remarks |
+| :--- | :--- | :--- | :--- |
+| 115 | Number Increment counter | ⬜️ Todo | Handle batching and strict mode. |
+| 116 | Capture product visible in viewport | ⬜️ Todo | Combine refs with IntersectionObserver. |
+| 117 | Highlight text on selection | ⬜️ Todo | Browser Selection API manipulation. |
+| 118 | Batch API calls in sequence | ⬜️ Todo | Async UI orchestration. |
+
 
 ---
 

@@ -57,18 +57,18 @@ Before diving into the exercises, ensure you understand the engines powering the
 
 | S.No | Name of Exercise | Status | Remarks |
 | :--- | :--- | :--- | :--- |
-| 1 | [`Promise.all()` polyfill](./01-promise-all.js) | ✅ Done | Fast-fails on the first rejection. |
-| 2 | [`Promise.any()` polyfill](./02-promise-any.js) | ✅ Done | Returns `AggregateError` if all fail. |
-| 3 | [`Promise.race()` polyfill](./03-promise-race.js) | ✅ Done | Resolves/rejects with the first settled. |
-| 4 | [`Promise.finally()` polyfill](./04-promise-finally.js) | ✅ Done | Remember value transparency. |
-| 5 | [`Promise.allSettled()` polyfill](./05-promise-allSettled.js) | ✅ Done | Maps results to status objects. |
-| 6 | [Custom Promise Implementation](./06-Custom-Promise) | ⬜️ Todo | Handle internal state and microtasks. |
-| 7 | [Execute async functions in Series](./07-async-series.js) | ✅ Done | Mastered via recursion/reduce. |
+| 1 | [`Promise.all()` polyfill](./part-01-promises-async/01-promise-all.js) | ✅ Done | Fast-fails on the first rejection. |
+| 2 | [`Promise.any()` polyfill](./part-01-promises-async/02-promise-any.js) | ✅ Done | Returns `AggregateError` if all fail. |
+| 3 | [`Promise.race()` polyfill](./part-01-promises-async/03-promise-race.js) | ✅ Done | Resolves/rejects with the first settled. |
+| 4 | [`Promise.finally()` polyfill](./part-01-promises-async/04-promise-finally.js) | ✅ Done | Remember value transparency. |
+| 5 | [`Promise.allSettled()` polyfill](./part-01-promises-async/05-promise-allSettled.js) | ✅ Done | Maps results to status objects. |
+| 6 | [Custom Promise Implementation](./part-01-promises-async/06-Custom-Promise) | ⬜️ Todo | Handle internal state and microtasks. |
+| 7 | [Execute async functions in Series](./part-01-promises-async/07-async-series.js) | ✅ Done | Mastered via recursion/reduce. |
 | 8 | Execute async functions in Parallel | ✅ Done | Handled via `Promise.all`. |
-| 9 | [Retry promises N number of times](./09-promise-retry.js) | ✅ Done | Retry failing Promise with delay. |
-| 10 | [Implement `mapSeries` async function](./10-mapSeries.js) | ✅ Done | Sequential async mapping. |
-| 11 | [Implement `mapLimit` async function](./11-mapLimit.js) | ✅ Done | Max concurrency using orchestrator. |
-| 12 | [Implement `asyncFilter` function](./12-async-filter.js) | ✅ Done | Parallel execution, preserves order. |
+| 9 | [Retry promises N number of times](./part-01-promises-async/09-promise-retry.js) | ✅ Done | Retry failing Promise with delay. |
+| 10 | [Implement `mapSeries` async function](./part-01-promises-async/10-mapSeries.js) | ✅ Done | Sequential async mapping. |
+| 11 | [Implement `mapLimit` async function](./part-01-promises-async/11-mapLimit.js) | ✅ Done | Max concurrency using orchestrator. |
+| 12 | [Implement `asyncFilter` function](./part-01-promises-async/12-async-filter.js) | ✅ Done | Parallel execution, preserves order. |
 | 13 | Implement `asyncReject` function | ✅ Done | Inverse of asyncFilter. |
 | 14 | Execute promises with priority | ⬜️ Todo | - |
 | 15 | Dependent async tasks | ⬜️ Todo | - |

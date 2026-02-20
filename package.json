@@ -1,0 +1,17 @@
+{
+  "name": "learnerbucket",
+  "version": "1.0.0",
+  "description": "*A comprehensive tracker and study guide based on the 118 core machine coding questions frequently asked in Frontend Engineering interviews.*",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

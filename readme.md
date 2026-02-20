@@ -8,6 +8,25 @@
 
 ---
 
+## 🛠️ How to Run
+
+### Vanilla JavaScript Tests (Parts 1-5)
+We use `vitest` to run tests for JavaScript exercises. Tests are co-located with their exercises.
+```bash
+npm install
+npx vitest
+```
+
+### React App (Parts 6 & 7)
+The React exercises are organized in a Vite React app located in the `react-exercises` folder.
+```bash
+cd react-exercises
+npm install
+npm run dev
+```
+
+---
+
 ## 📑 Table of Contents
 - [🚀 The Ultimate JavaScript \& React Interview Guide](#-the-ultimate-javascript--react-interview-guide)
   - [📑 Table of Contents](#-table-of-contents)

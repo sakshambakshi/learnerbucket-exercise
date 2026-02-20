@@ -91,64 +91,64 @@ Before diving into the exercises, ensure you understand the engines powering the
 | 11 | `mapLimit` async function | 🔴 Hard | Max concurrency using orchestration and chunking | [Code](./part-01-promises-async/11-mapLimit.js) | ✅ |
 | 12 | `asyncFilter` function | 🟡 Medium | Parallel filtering, preserving array order | [Code](./part-01-promises-async/12-async-filter.js) | ✅ |
 | 13 | `asyncReject` function | 🟢 Easy | Inverse logic operation of `asyncFilter` | [Code](./part-01-promises-async/13-async-reject.js) | ✅ |
-| 14 | Execute promises with priority | 🔴 Hard | Priority queues mixed with async execution limits | - | ⬜️ |
-| 15 | Dependent async tasks | 🔴 Hard | Modeling DAGs for promise resolution dependency | - | ⬜️ |
-| 38 | Stream API Basics | 🟡 Medium | Generators, buffering data stream logic | - | ⬜️ |
+| 14 | Execute promises with priority | 🔴 Hard | Priority queues mixed with async execution limits | [Code](./part-01-promises-async/14-promise-priority.js) | ⬜️ |
+| 15 | Dependent async tasks | 🔴 Hard | Modeling DAGs for promise resolution dependency | [Code](./part-01-promises-async/15-dependent-async-tasks.js) | ⬜️ |
+| 38 | Stream API Basics | 🟡 Medium | Generators, buffering data stream logic | [Code](./part-01-promises-async/38-stream-api.js) | ⬜️ |
 
 ### Part 2: Function Utilities & Closures
 *Mastering Lexical Scope, Context (`this`), and Optimization.*
 
 | # | Topic / Exercise | Difficulty | Key Concept to Revise | Links | Status |
 |:-:|:---|:---:|:---|:---|:---:|
-| 23 | Implement Debounce | 🟡 Medium | Clear timeout on rapid consecutive calls using closures | - | ⬜️ |
-| 24 | Debounce (Immediate Flag) | 🔴 Hard | Execute on leading edge instead of trailing | - | ⬜️ |
-| 25 | Implement Throttle | 🔴 Hard | Limit execution rate based on time intervals | - | ⬜️ |
-| 29 | Create Toggle function | 🟢 Easy | Cycle through arguments sequentially on each call | - | ⬜️ |
-| 30 | Create Sampling function | 🟡 Medium | Execute function only once per N internal calls | - | ⬜️ |
-| 39 | Create Memoizer | 🟡 Medium | Cache expensive function results via closures / Maps | - | ⬜️ |
-| 40 | Method chaining (Part 1) | 🟢 Easy | Return `this` from class methods `obj.do().do()` | - | ⬜️ |
-| 41 | Method chaining (Part 2) | 🟡 Medium | Lazy execution tracking in class structures | - | ⬜️ |
-| 45 | Currying | 🔴 Hard | Infinite param syntax (e.g. `sum(1)(2)(3)()`) | - | ⬜️ |
+| 23 | Implement Debounce | 🟡 Medium | Clear timeout on rapid consecutive calls using closures | [Code](./part-02-function-utilities-closures/23-debounce.js) | ⬜️ |
+| 24 | Debounce (Immediate Flag) | 🔴 Hard | Execute on leading edge instead of trailing | [Code](./part-02-function-utilities-closures/24-debounce-immediate.js) | ⬜️ |
+| 25 | Implement Throttle | 🔴 Hard | Limit execution rate based on time intervals | [Code](./part-02-function-utilities-closures/25-throttle.js) | ⬜️ |
+| 29 | Create Toggle function | 🟢 Easy | Cycle through arguments sequentially on each call | [Code](./part-02-function-utilities-closures/29-toggle.js) | ⬜️ |
+| 30 | Create Sampling function | 🟡 Medium | Execute function only once per N internal calls | [Code](./part-02-function-utilities-closures/30-sampling.js) | ⬜️ |
+| 39 | Create Memoizer | 🟡 Medium | Cache expensive function results via closures / Maps | [Code](./part-02-function-utilities-closures/39-memoizer.js) | ⬜️ |
+| 40 | Method chaining (Part 1) | 🟢 Easy | Return `this` from class methods `obj.do().do()` | [Code](./part-02-function-utilities-closures/40-method-chaining-1.js) | ⬜️ |
+| 41 | Method chaining (Part 2) | 🟡 Medium | Lazy execution tracking in class structures | [Code](./part-02-function-utilities-closures/41-method-chaining-2.js) | ⬜️ |
+| 45 | Currying | 🔴 Hard | Infinite param syntax (e.g. `sum(1)(2)(3)()`) | [Code](./part-02-function-utilities-closures/45-currying.js) | ⬜️ |
 
 ### Part 3: Data Structures & Algorithms
 *Mastering Space-Time Complexity and Memory Management.*
 
 | # | Topic / Exercise | Difficulty | Key Concept to Revise | Links | Status |
 |:-:|:---|:---:|:---|:---|:---:|
-| 16 | Pausable auto-incrementor | 🟡 Medium | `setInterval` wrapped by start/stop closure handlers | - | ⬜️ |
-| 17 | Queue using Stacks | 🟡 Medium | Cost shifts: Push O(1), Pop O(N) using double stacks | - | ⬜️ |
-| 18 | Stack using Queues | 🔴 Hard | Cost shifts: Push O(N), Pop O(1) via queue rotating | - | ⬜️ |
-| 19 | Stack with Min/Max | 🟡 Medium | Keep track of min/max in O(1) using paired structures | - | ⬜️ |
-| 20 | Two stacks in an Array | 🟡 Medium | Utilizing `left` and `right` sliding window pointers | - | ⬜️ |
-| 21 | Priority Queue | 🔴 Hard | Min-Heap or Max-Heap arrays & `bubbleUp` operations | - | ⬜️ |
-| 22 | LRU Cache | 🔴 Hard | O(1) operations combining a `Map` and Doubly Linked List | - | ⬜️ |
-| 28 | HashSet | 🟡 Medium | Custom hashing or avoiding dictionary conflicts | - | ⬜️ |
+| 16 | Pausable auto-incrementor | 🟡 Medium | `setInterval` wrapped by start/stop closure handlers | [Code](./part-03-data-structures-algorithms/16-pausable-auto-incrementor.js) | ⬜️ |
+| 17 | Queue using Stacks | 🟡 Medium | Cost shifts: Push O(1), Pop O(N) using double stacks | [Code](./part-03-data-structures-algorithms/17-queue-using-stacks.js) | ⬜️ |
+| 18 | Stack using Queues | 🔴 Hard | Cost shifts: Push O(N), Pop O(1) via queue rotating | [Code](./part-03-data-structures-algorithms/18-stack-using-queues.js) | ⬜️ |
+| 19 | Stack with Min/Max | 🟡 Medium | Keep track of min/max in O(1) using paired structures | [Code](./part-03-data-structures-algorithms/19-stack-with-min-max.js) | ⬜️ |
+| 20 | Two stacks in an Array | 🟡 Medium | Utilizing `left` and `right` sliding window pointers | [Code](./part-03-data-structures-algorithms/20-two-stacks-in-array.js) | ⬜️ |
+| 21 | Priority Queue | 🔴 Hard | Min-Heap or Max-Heap arrays & `bubbleUp` operations | [Code](./part-03-data-structures-algorithms/21-priority-queue.js) | ⬜️ |
+| 22 | LRU Cache | 🔴 Hard | O(1) operations combining a `Map` and Doubly Linked List | [Code](./part-03-data-structures-algorithms/22-lru-cache.js) | ⬜️ |
+| 28 | HashSet | 🟡 Medium | Custom hashing or avoiding dictionary conflicts | [Code](./part-03-data-structures-algorithms/28-hashset.js) | ⬜️ |
 
 ### Part 4: Core JS Polyfills & Timers
 *Mastering Browser APIs and Prototypal Inheritance.*
 
 | # | Topic / Exercise | Difficulty | Key Concept to Revise | Links | Status |
 |:-:|:---|:---:|:---|:---|:---:|
-| 26 | Custom `instanceof` | 🟡 Medium | Traverse the `__proto__` chain until `null` | - | ⬜️ |
-| 27 | Called with `new` | 🟢 Easy | Using `new.target` or prototype link comparisons | - | ⬜️ |
+| 26 | Custom `instanceof` | 🟡 Medium | Traverse the `__proto__` chain until `null` | [Code](./part-04-core-js-polyfills-timers/26-custom-instanceof.js) | ⬜️ |
+| 27 | Called with `new` | 🟢 Easy | Using `new.target` or prototype link comparisons | [Code](./part-04-core-js-polyfills-timers/27-called-with-new.js) | ⬜️ |
 | 31 | Make function sleep | 🟢 Easy | `await new Promise(r => setTimeout(r, ms))` trick | - | ✅ |
-| 42 | `clearAllTimeout` | 🔴 Hard | Intercepting `window.setTimeout` to track all generated IDs | - | ⬜️ |
-| 43 | `clearAllInterval` | 🔴 Hard | Intercepting `window.setInterval`, same as Timeouts | - | ⬜️ |
-| 44 | Fake setTimeout | 🔴 Hard | Jest internal timer manipulation concepts | - | ⬜️ |
-| 99 | Human readable Time | 🟢 Easy | String manipulating modulo remainders for Date conversions | - | ⬜️ |
-| 100| Detect overlapping circles| 🟡 Medium | Euclidean distance between centers vs sum of radii | - | ⬜️ |
+| 42 | `clearAllTimeout` | 🔴 Hard | Intercepting `window.setTimeout` to track all generated IDs | [Code](./part-04-core-js-polyfills-timers/42-clear-all-timeout.js) | ⬜️ |
+| 43 | `clearAllInterval` | 🔴 Hard | Intercepting `window.setInterval`, same as Timeouts | [Code](./part-04-core-js-polyfills-timers/43-clear-all-interval.js) | ⬜️ |
+| 44 | Fake setTimeout | 🔴 Hard | Jest internal timer manipulation concepts | [Code](./part-04-core-js-polyfills-timers/44-fake-settimeout.js) | ⬜️ |
+| 99 | Human readable Time | 🟢 Easy | String manipulating modulo remainders for Date conversions | [Code](./part-04-core-js-polyfills-timers/99-human-readable-time.js) | ⬜️ |
+| 100| Detect overlapping circles| 🟡 Medium | Euclidean distance between centers vs sum of radii | [Code](./part-04-core-js-polyfills-timers/100-detect-overlapping-circles.js) | ⬜️ |
 
 ### Part 5: Objects & Arrays Manipulation
 *Mastering Deep Traversals, Recursion, and Math.*
 
 | # | Topic / Exercise | Difficulty | Key Concept to Revise | Links | Status |
 |:-:|:---|:---:|:---|:---|:---:|
-| 32 | Remove cycle from object | 🟡 Medium | Use a `WeakSet` to track visited node cyclic references | - | ⬜️ |
-| 33 | Filter N-dimensional array | 🟡 Medium | Deep recursive walks combined with standard `filter` | - | ⬜️ |
-| 34 | Count in N-dimensional | 🟡 Medium | Recursion logic to return sub-tree sums to the root | - | ⬜️ |
-| 35 | Convert HEX to RGB | 🟢 Easy | String splitting and `parseInt(hex, 16)` extraction | - | ⬜️ |
-| 36 | Convert RGB to HEX | 🟢 Easy | Number `.toString(16)` and padding zeros via `.padStart` | - | ⬜️ |
-| 37 | In-memory filesystem | 🔴 Hard | Abstract syntax trees or nested object directory graphs | - | ⬜️ |
+| 32 | Remove cycle from object | 🟡 Medium | Use a `WeakSet` to track visited node cyclic references | [Code](./part-05-objects-arrays-manipulation/32-remove-cycle.js) | ⬜️ |
+| 33 | Filter N-dimensional array | 🟡 Medium | Deep recursive walks combined with standard `filter` | [Code](./part-05-objects-arrays-manipulation/33-filter-n-dimensional.js) | ⬜️ |
+| 34 | Count in N-dimensional | 🟡 Medium | Recursion logic to return sub-tree sums to the root | [Code](./part-05-objects-arrays-manipulation/34-count-n-dimensional.js) | ⬜️ |
+| 35 | Convert HEX to RGB | 🟢 Easy | String splitting and `parseInt(hex, 16)` extraction | [Code](./part-05-objects-arrays-manipulation/35-convert-hex-to-rgb.js) | ⬜️ |
+| 36 | Convert RGB to HEX | 🟢 Easy | Number `.toString(16)` and padding zeros via `.padStart` | [Code](./part-05-objects-arrays-manipulation/36-convert-rgb-to-hex.js) | ⬜️ |
+| 37 | In-memory filesystem | 🔴 Hard | Abstract syntax trees or nested object directory graphs | [Code](./part-05-objects-arrays-manipulation/37-in-memory-filesystem.js) | ⬜️ |
 
 ### Part 6: React Custom Hooks
 *Mastering React Lifecycle and Abstractions (In `react-exercises/src`)*

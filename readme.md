@@ -74,143 +74,107 @@ Before diving into the exercises, ensure you understand the engines powering the
 ### Part 1: Promises & Asynchronous JavaScript
 *Mastering the Event Loop, Microtasks, and Concurrency Orchestration.*
 
-| S.No | Name of Exercise | Status | Remarks |
-| :--- | :--- | :--- | :--- |
-| 1 | [`Promise.all()` polyfill](./part-01-promises-async/01-promise-all.js) | ✅ Done | Fast-fails on the first rejection. |
-| 2 | [`Promise.any()` polyfill](./part-01-promises-async/02-promise-any.js) | ✅ Done | Returns `AggregateError` if all fail. |
-| 3 | [`Promise.race()` polyfill](./part-01-promises-async/03-promise-race.js) | ✅ Done | Resolves/rejects with the first settled. |
-| 4 | [`Promise.finally()` polyfill](./part-01-promises-async/04-promise-finally.js) | ✅ Done | Remember value transparency. |
-| 5 | [`Promise.allSettled()` polyfill](./part-01-promises-async/05-promise-allSettled.js) | ✅ Done | Maps results to status objects. |
-| 6 | [Custom Promise Implementation](./part-01-promises-async/06-Custom-Promise) | ⬜️ Todo | Handle internal state and microtasks. |
-| 7 | [Execute async functions in Series](./part-01-promises-async/07-async-series.js) | ✅ Done | Mastered via recursion/reduce. |
-| 8 | Execute async functions in Parallel | ✅ Done | Handled via `Promise.all`. |
-| 9 | [Retry promises N number of times](./part-01-promises-async/09-promise-retry.js) | ✅ Done | Retry failing Promise with delay. |
-| 10 | [Implement `mapSeries` async function](./part-01-promises-async/10-mapSeries.js) | ✅ Done | Sequential async mapping. |
-| 11 | [Implement `mapLimit` async function](./part-01-promises-async/11-mapLimit.js) | ✅ Done | Max concurrency using orchestrator. |
-| 12 | [Implement `asyncFilter` function](./part-01-promises-async/12-async-filter.js) | ✅ Done | Parallel execution, preserves order. |
-| 13 | Implement `asyncReject` function | ✅ Done | Inverse of asyncFilter. |
-| 14 | Execute promises with priority | ⬜️ Todo | - |
-| 15 | Dependent async tasks | ⬜️ Todo | - |
-| 38 | Basic implementations of streams API | ⬜️ Todo | - |
+> 📝 **Revision Notes:** [View the Promise Combinators Cheat Sheet](./notes/promises.md)
+
+| # | Topic / Exercise | Difficulty | Key Concept to Revise | Links | Status |
+|:-:|:---|:---:|:---|:---|:---:|
+| 1 | `Promise.all()` polyfill | 🟡 Medium | Fast-fails on the first rejection, tracks resolved states | [Code](./part-01-promises-async/01-promise-all.js) | ✅ |
+| 2 | `Promise.any()` polyfill | 🟡 Medium | Returns `AggregateError` if all fail, resolves fast | [Code](./part-01-promises-async/02-promise-any.js) | ✅ |
+| 3 | `Promise.race()` polyfill | 🟢 Easy | Resolves/rejects with the first settled promise | [Code](./part-01-promises-async/03-promise-race.js) | ✅ |
+| 4 | `Promise.finally()` polyfill | 🟡 Medium | Remember value/rejection transparency | [Code](./part-01-promises-async/04-promise-finally.js) | ✅ |
+| 5 | `Promise.allSettled()` polyfill | 🟡 Medium | Maps results to status objects (`{status, value/reason}`) | [Code](./part-01-promises-async/05-promise-allSettled.js) | ✅ |
+| 6 | Custom Promise Implementation | 🔴 Hard | Handle internal states, `then`/`catch` chaining, microtasks | [Code](./part-01-promises-async/06-Custom-Promise) | ⬜️ |
+| 7 | Execute Async in Series | 🟡 Medium | Mastered via recursion/reduce array methods | [Code](./part-01-promises-async/07-async-series.js) | ✅ |
+| 8 | Execute Async in Parallel | 🟢 Easy | Handled natively via `Promise.all` orchestration | - | ✅ |
+| 9 | Retry promises N times | 🟡 Medium | Retry failing Promise with recursive delays | [Code](./part-01-promises-async/09-promise-retry.js) | ✅ |
+| 10 | `mapSeries` async function | 🟡 Medium | Sequential async mapping of array items | [Code](./part-01-promises-async/10-mapSeries.js) | ✅ |
+| 11 | `mapLimit` async function | 🔴 Hard | Max concurrency using orchestration and chunking | [Code](./part-01-promises-async/11-mapLimit.js) | ✅ |
+| 12 | `asyncFilter` function | 🟡 Medium | Parallel filtering, preserving array order | [Code](./part-01-promises-async/12-async-filter.js) | ✅ |
+| 13 | `asyncReject` function | 🟢 Easy | Inverse logic operation of `asyncFilter` | [Code](./part-01-promises-async/13-async-reject.js) | ✅ |
+| 14 | Execute promises with priority | 🔴 Hard | Priority queues mixed with async execution limits | - | ⬜️ |
+| 15 | Dependent async tasks | 🔴 Hard | Modeling DAGs for promise resolution dependency | - | ⬜️ |
+| 38 | Stream API Basics | 🟡 Medium | Generators, buffering data stream logic | - | ⬜️ |
 
 ### Part 2: Function Utilities & Closures
 *Mastering Lexical Scope, Context (`this`), and Optimization.*
 
-| S.No | Name of Exercise | Status | Remarks |
-| :--- | :--- | :--- | :--- |
-| 23 | Implement debounce function | ⬜️ Todo | Clear timeout on rapid calls. |
-| 24 | Implement debounce with immediate flag| ⬜️ Todo | Execute on leading edge instead of trailing. |
-| 25 | Implement throttle function | ⬜️ Todo | Limit execution rate based on time. |
-| 29 | Create a toggle function | ⬜️ Todo | Cycle through arguments on each call. |
-| 30 | Create a sampling function | ⬜️ Todo | Execute function only once per N calls. |
-| 39 | Create a memoizer function | ⬜️ Todo | Cache expensive function calls. |
-| 40 | Method chaining - part 1 | ⬜️ Todo | Return `this` to allow `.method().method()`. |
-| 41 | Method chaining - part 2 | ⬜️ Todo | - |
-| 45 | Currying - problem 1 | ⬜️ Todo | e.g., `sum(1)(2)(3)`. |
+| # | Topic / Exercise | Difficulty | Key Concept to Revise | Links | Status |
+|:-:|:---|:---:|:---|:---|:---:|
+| 23 | Implement Debounce | 🟡 Medium | Clear timeout on rapid consecutive calls using closures | - | ⬜️ |
+| 24 | Debounce (Immediate Flag) | 🔴 Hard | Execute on leading edge instead of trailing | - | ⬜️ |
+| 25 | Implement Throttle | 🔴 Hard | Limit execution rate based on time intervals | - | ⬜️ |
+| 29 | Create Toggle function | 🟢 Easy | Cycle through arguments sequentially on each call | - | ⬜️ |
+| 30 | Create Sampling function | 🟡 Medium | Execute function only once per N internal calls | - | ⬜️ |
+| 39 | Create Memoizer | 🟡 Medium | Cache expensive function results via closures / Maps | - | ⬜️ |
+| 40 | Method chaining (Part 1) | 🟢 Easy | Return `this` from class methods `obj.do().do()` | - | ⬜️ |
+| 41 | Method chaining (Part 2) | 🟡 Medium | Lazy execution tracking in class structures | - | ⬜️ |
+| 45 | Currying | 🔴 Hard | Infinite param syntax (e.g. `sum(1)(2)(3)()`) | - | ⬜️ |
 
 ### Part 3: Data Structures & Algorithms
 *Mastering Space-Time Complexity and Memory Management.*
 
-| S.No | Name of Exercise | Status | Remarks |
-| :--- | :--- | :--- | :--- |
-| 16 | Create pausable auto incrementor | ⬜️ Todo | - |
-| 17 | Implement queue using stack | ⬜️ Todo | Push costs O(1), Pop costs O(N). |
-| 18 | Implement stack using queue | ⬜️ Todo | Push costs O(N), Pop costs O(1). |
-| 19 | Implement stack with min/max method | ⬜️ Todo | Keep track of min/max in O(1) time. |
-| 20 | Implement two stacks with an array | ⬜️ Todo | - |
-| 21 | Implement Priority Queue | ⬜️ Todo | - |
-| 22 | Implement LRU cache | ⬜️ Todo | O(1) ops using `Map` for order tracking. |
-| 28 | Implement hashSet | ⬜️ Todo | - |
+| # | Topic / Exercise | Difficulty | Key Concept to Revise | Links | Status |
+|:-:|:---|:---:|:---|:---|:---:|
+| 16 | Pausable auto-incrementor | 🟡 Medium | `setInterval` wrapped by start/stop closure handlers | - | ⬜️ |
+| 17 | Queue using Stacks | 🟡 Medium | Cost shifts: Push O(1), Pop O(N) using double stacks | - | ⬜️ |
+| 18 | Stack using Queues | 🔴 Hard | Cost shifts: Push O(N), Pop O(1) via queue rotating | - | ⬜️ |
+| 19 | Stack with Min/Max | 🟡 Medium | Keep track of min/max in O(1) using paired structures | - | ⬜️ |
+| 20 | Two stacks in an Array | 🟡 Medium | Utilizing `left` and `right` sliding window pointers | - | ⬜️ |
+| 21 | Priority Queue | 🔴 Hard | Min-Heap or Max-Heap arrays & `bubbleUp` operations | - | ⬜️ |
+| 22 | LRU Cache | 🔴 Hard | O(1) operations combining a `Map` and Doubly Linked List | - | ⬜️ |
+| 28 | HashSet | 🟡 Medium | Custom hashing or avoiding dictionary conflicts | - | ⬜️ |
 
 ### Part 4: Core JS Polyfills & Timers
 *Mastering Browser APIs and Prototypal Inheritance.*
 
-| S.No | Name of Exercise | Status | Remarks |
-| :--- | :--- | :--- | :--- |
-| 26 | Implement custom `instanceof` | ⬜️ Todo | Traverse the `__proto__` chain. |
-| 27 | Check if function called with `new` | ⬜️ Todo | Checking `new.target` or prototype link. |
-| 31 | Make function sleep | ✅ Done | `await new Promise(r => setTimeout(r, ms))` |
-| 42 | Implement clearAllTimeout | ⬜️ Todo | Overwrite `window.setTimeout` to track IDs. |
-| 43 | Implement clearAllInterval | ⬜️ Todo | - |
-| 44 | Create a fake setTimeout | ⬜️ Todo | - |
-| 99 | Time in human readable format | ⬜️ Todo | - |
-| 100| Detect overlapping circles | ⬜️ Todo | Math logic / Geometry logic. |
+| # | Topic / Exercise | Difficulty | Key Concept to Revise | Links | Status |
+|:-:|:---|:---:|:---|:---|:---:|
+| 26 | Custom `instanceof` | 🟡 Medium | Traverse the `__proto__` chain until `null` | - | ⬜️ |
+| 27 | Called with `new` | 🟢 Easy | Using `new.target` or prototype link comparisons | - | ⬜️ |
+| 31 | Make function sleep | 🟢 Easy | `await new Promise(r => setTimeout(r, ms))` trick | - | ✅ |
+| 42 | `clearAllTimeout` | 🔴 Hard | Intercepting `window.setTimeout` to track all generated IDs | - | ⬜️ |
+| 43 | `clearAllInterval` | 🔴 Hard | Intercepting `window.setInterval`, same as Timeouts | - | ⬜️ |
+| 44 | Fake setTimeout | 🔴 Hard | Jest internal timer manipulation concepts | - | ⬜️ |
+| 99 | Human readable Time | 🟢 Easy | String manipulating modulo remainders for Date conversions | - | ⬜️ |
+| 100| Detect overlapping circles| 🟡 Medium | Euclidean distance between centers vs sum of radii | - | ⬜️ |
 
 ### Part 5: Objects & Arrays Manipulation
 *Mastering Deep Traversals, Recursion, and Math.*
 
-| S.No | Name of Exercise | Status | Remarks |
-| :--- | :--- | :--- | :--- |
-| 32 | Remove cycle from the object | ⬜️ Todo | Use a `WeakSet` to track visited nodes. |
-| 33 | Filter multidimensional array | ⬜️ Todo | Recursion required. |
-| 34 | Count element in multidimensional array| ⬜️ Todo | Recursion required. |
-| 35 | Convert HEX to RGB | ⬜️ Todo | Bitwise operators or `parseInt(hex, 16)`. |
-| 36 | Convert RGB to HEX | ⬜️ Todo | `.toString(16)` padding logic. |
-| 37 | In-memory filesystem library | ⬜️ Todo | - |
-
----
+| # | Topic / Exercise | Difficulty | Key Concept to Revise | Links | Status |
+|:-:|:---|:---:|:---|:---|:---:|
+| 32 | Remove cycle from object | 🟡 Medium | Use a `WeakSet` to track visited node cyclic references | - | ⬜️ |
+| 33 | Filter N-dimensional array | 🟡 Medium | Deep recursive walks combined with standard `filter` | - | ⬜️ |
+| 34 | Count in N-dimensional | 🟡 Medium | Recursion logic to return sub-tree sums to the root | - | ⬜️ |
+| 35 | Convert HEX to RGB | 🟢 Easy | String splitting and `parseInt(hex, 16)` extraction | - | ⬜️ |
+| 36 | Convert RGB to HEX | 🟢 Easy | Number `.toString(16)` and padding zeros via `.padStart` | - | ⬜️ |
+| 37 | In-memory filesystem | 🔴 Hard | Abstract syntax trees or nested object directory graphs | - | ⬜️ |
 
 ### Part 6: React Custom Hooks
-*Mastering React Lifecycle and Abstractions.*
+*Mastering React Lifecycle and Abstractions (In `react-exercises/src`)*
 
-| S.No | Name of Exercise | Status | Remarks |
-| :--- | :--- | :--- | :--- |
-| 101 | `usePrevious()` hook | ⬜️ Todo | Track previous state with `useRef`. |
-| 102 | `useIdle()` hook | ⬜️ Todo | Detect user inactivity via event listeners. |
-| 103 | `useAsync()` hook | ⬜️ Todo | Manage loading/error/data states. |
-| 104 | `useDebounce()` hook | ⬜️ Todo | Delay UI state updates. |
-| 105 | `useThrottle()` hook | ⬜️ Todo | Limit execution rate in React. |
-| 106 | `useResponsive()` hook | ⬜️ Todo | Track viewport/media queries. |
-| 107 | `useWhyDidYouUpdate()` hook | ⬜️ Todo | Debug unnecessary re-renders. |
-| 108 | `useOnScreen()` hook | ⬜️ Todo | Uses `IntersectionObserver`. |
-| 109 | `useScript()` hook | ⬜️ Todo | Dynamically inject external JS. |
-| 110 | `useOnClickOutside()` hook | ⬜️ Todo | Crucial for Modals/Dropdowns. |
-| 111 | `useHasFocus()` hook | ⬜️ Todo | - |
-| 112 | `useToggle()` hook | ⬜️ Todo | - |
-| 113 | `useCopy()` hook | ⬜️ Todo | Clipboard API integration. |
-| 114 | `useLockedBody()` hook | ⬜️ Todo | Prevent background scrolling via CSS. |
+| # | Topic / Exercise | Difficulty | Key Concept to Revise | Links | Status |
+|:-:|:---|:---:|:---|:---|:---:|
+| 101 | `usePrevious()` | 🟢 Easy | Return previous state value via `useRef` | - | ⬜️ |
+| 102 | `useIdle()` | 🟡 Medium | Global window event listeners, timeout debouncing | - | ⬜️ |
+| 103 | `useAsync()` | 🟡 Medium | Encapsulate loading, error, and data payload states | - | ⬜️ |
+| 104 | `useDebounce()` | 🟡 Medium | Delay UI state updates (search inputs) using effects | - | ⬜️ |
+| 105 | `useThrottle()` | 🟡 Medium | Limit re-render execution rate using stored references | - | ⬜️ |
+| 106 | `useResponsive()` | 🟡 Medium | Track component resizes or viewport media queries | - | ⬜️ |
+| 107 | `useWhyDidYouUpdate`| 🔴 Hard | Object shallow comparison debugging for unnecessary renders | - | ⬜️ |
+| 108 | `useOnScreen()` | 🟡 Medium | Leveraging `IntersectionObserver` on bound DOM refs | - | ⬜️ |
+| 109 | `useScript()` | 🟢 Easy | Dynamically appending external `<script>` tags via effect | - | ⬜️ |
+| 110 | `useOnClickOutside()`| 🟡 Medium | Crucial for Modals/Dropdowns `document` click tracking | - | ⬜️ |
+| 113 | `useCopy()` | 🟢 Easy | Asynchronous Clipboard API integrations via `navigator` | - | ⬜️ |
+| 114 | `useLockedBody()` | 🟢 Easy | Prevent background scrolling toggling CSS `overflow` | - | ⬜️ |
 
 ### Part 7: React Machine Coding
-*Mastering Component Architecture and UI State.*
+*Mastering Component Architecture and UI State (In `react-exercises/src`)*
 
-| S.No | Name of Exercise | Status | Remarks |
-| :--- | :--- | :--- | :--- |
-| 115 | Number Increment counter | ⬜️ Todo | Handle batching and strict mode. |
-| 116 | Capture product visible in viewport | ⬜️ Todo | Combine refs with IntersectionObserver. |
-| 117 | Highlight text on selection | ⬜️ Todo | Browser Selection API manipulation. |
-| 118 | Batch API calls in sequence | ⬜️ Todo | Async UI orchestration. |
+| # | Topic / Exercise | Difficulty | Key Concept to Revise | Links | Status |
+|:-:|:---|:---:|:---|:---|:---:|
+| 115 | Number Incrementer | 🟢 Easy | React `StrictMode` closures and functional state updates | - | ⬜️ |
+| 116 | Capture products | 🟡 Medium | Feed lists into `IntersectionObserver` tracking refs | - | ⬜️ |
+| 117 | Highlight text range | 🔴 Hard | Native window Selection API node boundary transformations | - | ⬜️ |
+| 118 | Batch API sequence | 🟡 Medium | Async queuing decoupled from standard UI rendering loops | - | ⬜️ |
 
-
----
-
-## Section 2: JavaScript Promise Managers: A Comedy
-
-*Imagine you are throwing a massive party and you send four of your friends out to pick up pizzas. These friends are your Promises.* *Here is the dramatic, foolproof way to remember how they behave:*
-
-### 1. The Perfectionist vs. The Therapist
-
-**`Promise.all()` – The Dramatic Perfectionist**
-You tell your four friends, "We need all four pizzas for the party to be perfect."
-* **How it works:** You wait by the door. If all four friends come back with pizza, the party is a massive success!
-* **The Catch:** If even ONE friend drops their pizza in a puddle (a rejection), you absolutely lose your mind. You flip the table, scream "THE PARTY IS RUINED," and kick everyone out. You don't even care if the other three friends successfully brought their pizzas. One failure = total meltdown.
-* **Memory Hook:** *“If it's not 100% perfect, burn it all down!”*
-
-**`Promise.allSettled()` – The Chill Therapist**
-You have been going to therapy and you are very at peace with the chaos of the universe.
-* **How it works:** You tell your friends to get the pizzas, and then you just... wait. You don't panic. You let everyone finish their journey.
-* **The Catch:** None! When all four friends finally return, you have a peaceful debrief. "Okay, Sarah, you brought a pizza, valid. Mike, you got mugged for your pizza, I hear you, your trauma is valid." You compile a neat little report card of who succeeded and who failed, but the party continues either way.
-* **Memory Hook:** *“Let's just wait until everyone is finished and talk about our feelings, win or lose.”*
-
-### 2. The Referee vs. The Desperate Survivor
-
-**`Promise.race()` – The Unhinged Referee**
-You are holding a stopwatch and you have clearly had too much caffeine. You shout, "I ONLY CARE ABOUT THE FIRST PERSON WHO CROSSES THIS FINISH LINE!"
-* **How it works:** The absolute millisecond the door opens, the race is over.
-* **The Catch:** You do not care if the first person is bringing good news or bad news. If Dave comes running in first holding a glorious pepperoni pizza (a resolve), you declare Dave the winner and ignore the rest. But if Kevin trips, busts his lip, and slides across the finish line empty-handed and crying (a reject) before anyone else arrives... you blow the whistle, scream "KEVIN FAILED, RACE OVER, WE ALL FAIL," and lock the door on everyone else.
-* **Memory Hook:** *“First one back determines our fate, whether they bring pizza or disaster.”*
-
-**`Promise.any()` – The Desperate Survivor**
-You haven't eaten in 12 days. You are starving. You don't care about the race, you don't care about perfection, you just need food.
-* **How it works:** You wait by the door. Dave trips and ruins his pizza? You ignore him. Kevin gets arrested? You ignore him. You literally do not care about failures.
-* **The Catch:** The very first friend who walks through that door with an intact pizza (a resolve) is your hero. You grab the pizza, lock the door, and the other three friends are dead to you. The only way you cry (reject) is if ALL FOUR friends fail to bring you food.
-* **Memory Hook:** *“First one back with an ACTUAL PIZZA saves the day. Ignore the failures!”*
